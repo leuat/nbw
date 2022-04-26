@@ -4,7 +4,11 @@
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-table.wb, th.wb, td.wb {
+th.wb, td.wb {
+	border: 1px solid;
+  }
+
+  table.wb {
 	border: 1px solid;
 	margin-left: auto;
 	margin-right: auto;
@@ -26,7 +30,7 @@ table.footer, th.footer, td.footer {
 table.central, th.central, td.central {
 	margin-left: auto;
 	margin-right: auto;
-	width:50%;
+	width:75%;
 
 }
 

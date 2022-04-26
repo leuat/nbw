@@ -7,13 +7,16 @@ include "inc/header.php";
 
 // Perform insert
 if (isset($_POST['pname'])) {
-    $c->query("insert into project (name) values('".$_POST['pname']."');");
+    $c->query("insert into project (name, projecttype_id) values('".$_POST['pname']."','".$_POST['projecttype']."');");
 }
 
 // perform delete
 if (isset($_POST['delete_id'])) {
     $c->query("delete from project where id=".$_POST['delete_id'].";");
 }
+
+
+$projecttypes = $c->query("select id,value from projecttype;")
 
 ?>
 
@@ -23,10 +26,11 @@ if (isset($_POST['delete_id'])) {
 
 <table class="wb"> 
 <?php 
-    $res = $c->query("select id, name from project");
+    $res = $c->query("select project.id, project.name, projecttype.value from project inner join projecttype on projecttype.id=project.projecttype_id;");
     while ($r = $res->fetch_assoc()) {
         print "<tr>";
-        print "<tr><td class=\"wb\">".$r['name']."</td>";
+        print "<td class=\"wb\">".$r['name']."</td>";
+        print "<td class=\"wb\">".$r['value']."</td>";
 
         // Delete button
 
@@ -44,8 +48,17 @@ if (isset($_POST['delete_id'])) {
 </table>
 <table class="central"><tr><td>
 <form  method="post" action="projects.php">
-  <label for="name">Project name:</label><br>
-  <input type="text" id="pname" name="pname"><br>
+  <label for="name">Project name:</label>
+  <input type="text" id="pname" name="pname">
+  <select name="projecttype">
+    <?php
+  while ($r = $projecttypes->fetch_assoc()) {
+    print "<option value=\"".$r['id']."\">".$r['value']."</option>";    
+  }
+
+
+    ?>
+  </select>
   <input type="submit" value="New project">
 </form> 
   </td></tr>
