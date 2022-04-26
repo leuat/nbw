@@ -7,6 +7,21 @@
 table.wb, th.wb, td.wb {
 	border: 1px solid;
   }
+
+table.footer, th.footer, td.footer {
+	margin-left: auto;
+	margin-right: auto;
+	position: absolute; 
+	bottom: 50px;  	
+	text-align:center;
+	left: 0;
+	right: 0;
+	text-align: center;
+
+}
+
+
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	line-height: 1.75em;
