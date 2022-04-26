@@ -6,6 +6,9 @@
 }
 table.wb, th.wb, td.wb {
 	border: 1px solid;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
   }
 
 table.footer, th.footer, td.footer {
@@ -17,6 +20,13 @@ table.footer, th.footer, td.footer {
 	left: 0;
 	right: 0;
 	text-align: center;
+
+}
+
+table.central, th.central, td.central {
+	margin-left: auto;
+	margin-right: auto;
+	width:50%;
 
 }
 

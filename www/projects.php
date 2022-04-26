@@ -6,33 +6,31 @@ include "inc/header.php";
 <?php
 
 // Perform insert
-if (isset($_POST['fname'])) {
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $c->query("insert into user (firstname, lastname) values('".$fname."','".$lname."');");
+if (isset($_POST['pname'])) {
+    $c->query("insert into project (name) values('".$_POST['pname']."');");
 }
 
 // perform delete
 if (isset($_POST['delete_id'])) {
-    $c->query("delete from user where id=".$_POST['delete_id'].";");
+    $c->query("delete from project where id=".$_POST['delete_id'].";");
 }
 
 ?>
 
-<table align="center">
+<table class="central">
   <tr><td>
 
 
 <table class="wb"> 
 <?php 
-    $res = $c->query("select id, firstname, lastname from user");
+    $res = $c->query("select id, name from project");
     while ($r = $res->fetch_assoc()) {
         print "<tr>";
-        print "<tr><td class=\"wb\">".$r['firstname']."</td><td class=\"wb\">".$r['lastname']."</td>";
+        print "<tr><td class=\"wb\">".$r['name']."</td>";
 
         // Delete button
 
-        print "<td><form method=\"post\" action=\"users.php\">";
+        print "<td><form method=\"post\" action=\"projects.php\">";
         print "<input type=\"submit\" value=\"Delete\">";
 
         print "<input type=\"hidden\" name=\"delete_id\" value=\"".$r['id']."\">";
@@ -44,21 +42,15 @@ if (isset($_POST['delete_id'])) {
 
 ?>
 </table>
-<table>
-<form  method="post" action="users.php">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname">
-  <input type="submit" value="Create new user">
+<table class="central"><tr><td>
+<form  method="post" action="projects.php">
+  <label for="name">Project name:</label><br>
+  <input type="text" id="pname" name="pname"><br>
+  <input type="submit" value="New project">
 </form> 
+  </td></tr>
 </table>
 <p>
-<?php
-if (isset($_POST['delete_id'])) {
-//    echo $_POST['delete_id'];
-}
-?>
 
 </tr></td></table>
 

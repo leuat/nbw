@@ -19,7 +19,7 @@ if (isset($_POST['delete_id'])) {
 
 ?>
 
-<table align="center">
+<table class="central">
   <tr><td>
 
 
@@ -44,7 +44,7 @@ if (isset($_POST['delete_id'])) {
 
 ?>
 </table>
-<table>
+<table class="central"><tr><td>
 <form  method="post" action="users.php">
   <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname"><br>
@@ -52,6 +52,8 @@ if (isset($_POST['delete_id'])) {
   <input type="text" id="lname" name="lname">
   <input type="submit" value="Create new user">
 </form> 
+  </td>
+  </tr>
 </table>
 <p>
 <?php
