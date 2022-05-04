@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+;#@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 
 * {
 	-webkit-box-sizing: border-box;
@@ -18,11 +18,12 @@ th.wb, td.wb {
 table.footer, th.footer, td.footer {
 	margin-left: auto;
 	margin-right: auto;
+	/*
 	position: absolute; 
 	bottom: 50px;  	
 	text-align:center;
 	left: 0;
-	right: 0;
+	right: 0;*/
 	text-align: center;
 
 }

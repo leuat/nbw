@@ -21,7 +21,8 @@ $projecttypes = $c->query("select id,value from projecttype;")
 ?>
 
 <table class="central">
-  <tr><td>
+  <tr>
+    <td><b>Project</td><td>Type</td><td></td><td></td></tr>
 
 
 <table class="wb"> 
@@ -31,16 +32,15 @@ $projecttypes = $c->query("select id,value from projecttype;")
         print "<tr>";
         print "<td class=\"wb\">".$r['name']."</td>";
         print "<td class=\"wb\">".$r['value']."</td>";
+        print "<td class=\"wb\"><a href=\"project.php?id=".$r['id']."\">View</a></td>";
 
         // Delete button
 
         print "<td><form method=\"post\" action=\"projects.php\">";
         print "<input type=\"submit\" value=\"Delete\">";
-
         print "<input type=\"hidden\" name=\"delete_id\" value=\"".$r['id']."\">";
-        
-
         print "</form>";
+        // delete button ends
         print "</tr>";
     }
 
